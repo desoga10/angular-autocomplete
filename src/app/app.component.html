@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+      <form class="form mt-5">
+        <label for="exampleDataList" class="form-label">Datalist example</label>
+        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search..."
+          (change)="nameValue($any($event.target).value)">
+
+        <datalist id="datalistOptions">
+          <option *ngFor="let post of posts" [value]="post.name">
+        </datalist>
+      </form>
+    </div>
+  </div>
+
+
+  <div class="row mt-5" *ngIf="!username">
+    <div class="col-sm-4" *ngFor="let post of posts">
+      <div class="card purple">
+        <h3 class="title">{{post.name}}</h3>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row mt-5" *ngIf="username">
+    <div class="col-sm-4">
+      <div class="card purple">
+        <h3 class="title">{{username}}</h3>
+      </div>
+    </div>
+  </div>
+</div>
